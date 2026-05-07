@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  width: 340px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 214, 140, 0.68), transparent 32%),
+    linear-gradient(180deg, #fffaf0, #f5ede2);
+  color: #1a2a3a;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.popup {
+  padding: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #985900;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.status {
+  margin: 0 0 14px;
+  color: #5c6a78;
+  line-height: 1.6;
+}
+
+.api-status {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.api-status-title {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #985900;
+}
+
+.api-status-body {
+  white-space: pre-wrap;
+  color: #263747;
+  font-size: 12px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.feature-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.pdf-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.pdf-actions[hidden] {
+  display: none;
+}
+
+.feature {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+button {
+  width: 100%;
+  min-height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: #18314a;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #e4d6c4;
+  color: #243446;
+}

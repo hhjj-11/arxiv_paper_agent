@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArXiv 论文阅读智能助手 - 配置</title>
+    <link rel="stylesheet" href="./options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">ArXiv Paper Agent</p>
+        <h1>配置你的论文阅读智能助手</h1>
+        <p class="lead">
+          填写 OpenAI 兼容模型接口，配置 YouTube Data API Key，并用可视化表单创建自己的 Agent。
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>LLM 配置</h2>
+        <label class="field">
+          <span>API Base URL / Endpoint</span>
+          <input id="api-endpoint" type="url" placeholder="https://api.openai.com/v1 或 https://api.openai.com/v1/chat/completions" />
+        </label>
+        <label class="field">
+          <span>API Key</span>
+          <input id="api-key" type="password" placeholder="sk-..." />
+        </label>
+        <label class="field">
+          <span>Model</span>
+          <input id="model" type="text" placeholder="例如 gpt-4o-mini 或 MiniMax-M2.7" />
+        </label>
+        <label class="field">
+          <span>Temperature</span>
+          <input id="temperature" type="number" min="0" max="1" step="0.1" />
+        </label>
+        <label class="field">
+          <span>YouTube Data API Key（可选）</span>
+          <input id="youtube-api-key" type="password" placeholder="用于返回排序后的具体视频结果；不填则生成搜索页链接" />
+        </label>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <div>
+            <h2>自定义 Agent</h2>
+            <p class="hint">不填写也能使用内置功能。自定义 Agent 用来增加你自己的按钮。</p>
+          </div>
+          <button id="add-agent" type="button">新增 Agent</button>
+        </div>
+
+        <div class="agent-layout">
+          <aside class="agent-list-panel">
+            <div id="agent-list" class="agent-list"></div>
+          </aside>
+
+          <section class="agent-form-panel">
+            <label class="field">
+              <span>ID</span>
+              <input id="agent-id" type="text" placeholder="例如 formula_explain，必须唯一" />
+            </label>
+            <label class="field">
+              <span>名称</span>
+              <input id="agent-name" type="text" placeholder="例如 公式推导解释 Agent" />
+            </label>
+            <label class="field">
+              <span>按钮文字</span>
+              <input id="agent-label" type="text" placeholder="例如 公式" />
+            </label>
+            <label class="field">
+              <span>出现位置</span>
+              <select id="agent-scope">
+                <option value="selection">划词浮层 selection</option>
+                <option value="paper">右下角固定栏 paper</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>描述</span>
+              <input id="agent-description" type="text" placeholder="说明这个 Agent 做什么" />
+            </label>
+            <label class="field">
+              <span>System Prompt</span>
+              <textarea id="agent-system-prompt" rows="4" placeholder="告诉模型扮演什么角色，以及输出风格"></textarea>
+            </label>
+            <label class="field">
+              <span>Prompt Template</span>
+              <textarea id="agent-prompt-template" rows="8" placeholder="写给模型的任务模板，可使用 {{selection}}、{{page.title}} 等占位符"></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button id="apply-agent" type="button">应用到列表</button>
+              <button id="delete-agent" type="button" class="danger">删除当前 Agent</button>
+            </div>
+
+            <p class="hint">
+              可用占位符：<code>{{selection}}</code>、<code>{{sentence}}</code>、<code>{{paragraph}}</code>、
+              <code>{{page.title}}</code>、<code>{{page.abstract}}</code>、<code>{{page.bodyText}}</code>。
+            </p>
+          </section>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <div>
+            <h2>JSON 高级编辑</h2>
+            <p class="hint">可视化表单会自动同步这里的 JSON。你也可以直接编辑 JSON 后点击“从 JSON 载入”。</p>
+          </div>
+          <button id="load-json" type="button" class="secondary">从 JSON 载入</button>
+        </div>
+        <textarea id="custom-agents" rows="14" spellcheck="false"></textarea>
+      </section>
+
+      <section class="card">
+        <h2>示例 Agent</h2>
+        <pre class="example">[
+  {
+    "id": "formula_explain",
+    "name": "公式推导解释 Agent",
+    "label": "公式",
+    "scope": "selection",
+    "description": "解释选中公式或数学表达式的含义与推导思路。",
+    "systemPrompt": "你是数学推导讲解助手，请用中文解释公式，并保持严谨。",
+    "promptTemplate": "请解释以下论文内容中的公式或推导。选中文本：{{selection}}\n所在段落：{{paragraph}}\n论文标题：{{page.title}}\n正文片段：{{page.bodyText}}"
+  }
+]</pre>
+      </section>
+
+      <footer class="actions">
+        <button id="save" type="button">保存配置</button>
+        <button id="reset" type="button" class="secondary">恢复默认</button>
+        <span id="status" role="status" aria-live="polite"></span>
+      </footer>
+    </main>
+
+    <script src="../shared/constants.js"></script>
+    <script src="./options.js"></script>
+  </body>
+</html>

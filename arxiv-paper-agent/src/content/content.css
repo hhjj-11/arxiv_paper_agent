@@ -1,0 +1,303 @@
+#arxiv-agent-shell {
+  position: relative;
+  z-index: 2147483646;
+}
+
+.arxiv-agent-toolbar {
+  position: fixed;
+  display: none;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgba(22, 39, 63, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 252, 247, 0.98);
+  box-shadow: 0 18px 48px rgba(20, 28, 44, 0.18);
+  backdrop-filter: blur(10px);
+  z-index: 2147483647;
+}
+
+.arxiv-agent-toolbar.is-visible {
+  display: flex;
+}
+
+.arxiv-agent-dock {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: none;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: fit-content;
+  min-width: min(260px, calc(100vw - 24px));
+  max-width: min(420px, calc(100vw - 24px));
+  padding: 12px;
+  border: 1px solid rgba(22, 39, 63, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 252, 247, 0.96);
+  box-shadow: 0 20px 60px rgba(20, 28, 44, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.arxiv-agent-dock.is-visible {
+  display: flex;
+}
+
+.arxiv-agent-dock-label {
+  width: 100%;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a5f00;
+}
+
+.arxiv-agent-dock-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #16324f;
+  cursor: pointer;
+}
+
+.arxiv-agent-toolbar-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #16324f;
+  background: linear-gradient(135deg, #f8cf7f, #fff0c2);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.arxiv-agent-toolbar-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(191, 129, 28, 0.22);
+}
+
+.arxiv-agent-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: fit-content;
+  min-width: min(360px, calc(100vw - 32px));
+  max-width: min(680px, calc(100vw - 32px));
+  max-height: calc(100vh - 40px);
+  display: none;
+  overflow: hidden;
+  border: 1px solid rgba(16, 36, 61, 0.12);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 221, 156, 0.75), transparent 34%),
+    linear-gradient(180deg, #fffdf9, #f7f2eb);
+  box-shadow: 0 26px 70px rgba(23, 33, 48, 0.18);
+  color: #1d2a38;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.arxiv-agent-panel.is-visible {
+  display: block;
+}
+
+.arxiv-agent-panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid rgba(16, 36, 61, 0.08);
+  min-width: 0;
+}
+
+.arxiv-agent-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9a5f00;
+}
+
+#arxiv-agent-panel-title {
+  margin: 4px 0 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+#arxiv-agent-close {
+  border: 0;
+  background: transparent;
+  color: #425466;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.arxiv-agent-panel-body {
+  overflow: auto;
+  max-height: calc(100vh - 120px);
+  padding: 14px 16px 16px;
+  font-size: 14px;
+  min-width: 0;
+}
+
+.arxiv-agent-empty,
+.arxiv-agent-loading,
+.arxiv-agent-summary,
+.arxiv-agent-section-body {
+  white-space: pre-wrap;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.arxiv-agent-summary {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  margin-bottom: 12px;
+  max-width: 64ch;
+}
+
+.arxiv-agent-meta {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.arxiv-agent-meta-row {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.arxiv-agent-meta-label {
+  font-size: 12px;
+  color: #7a8794;
+}
+
+.arxiv-agent-meta-value {
+  font-size: 14px;
+  color: #182431;
+}
+
+.arxiv-agent-section {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.72);
+  max-width: 64ch;
+}
+
+.arxiv-agent-section-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #6c4300;
+}
+
+.arxiv-agent-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 8px;
+  max-width: min(64ch, 100%);
+}
+
+.arxiv-agent-expand-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.arxiv-agent-expand-item {
+  border: 1px solid rgba(22, 39, 63, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 252, 247, 0.82);
+}
+
+.arxiv-agent-expand-summary {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.arxiv-agent-expand-title {
+  font-weight: 700;
+  color: #1d2a38;
+}
+
+.arxiv-agent-expand-brief,
+.arxiv-agent-expand-meta {
+  color: #667789;
+  font-size: 12px;
+}
+
+.arxiv-agent-expand-body {
+  padding: 0 12px 12px;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.arxiv-agent-action {
+  display: grid;
+  gap: 3px;
+  min-height: 44px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: #16324f;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.arxiv-agent-action-label {
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.arxiv-agent-action-detail {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 12px;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+  .arxiv-agent-panel:has(.arxiv-agent-actions),
+  .arxiv-agent-panel:has(.arxiv-agent-expand-list) {
+    width: min(680px, calc(100vw - 32px));
+  }
+}
+
+@media (max-width: 720px) {
+  .arxiv-agent-panel {
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: auto;
+    min-width: 0;
+    max-height: 70vh;
+  }
+
+  .arxiv-agent-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .arxiv-agent-dock {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: auto;
+    min-width: 0;
+  }
+}

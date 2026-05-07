@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArXiv Agent PDF Reader</title>
+    <link rel="stylesheet" href="../content/content.css" />
+    <link rel="stylesheet" href="./viewer.css" />
+  </head>
+  <body>
+    <header class="pdf-reader-topbar">
+      <div>
+        <p class="pdf-reader-kicker">ArXiv Paper Agent</p>
+        <h1 id="pdf-title">PDF 阅读页</h1>
+      </div>
+      <div class="pdf-reader-controls">
+        <button id="zoom-out" type="button" title="缩小">-</button>
+        <span id="zoom-label">100%</span>
+        <button id="zoom-in" type="button" title="放大">+</button>
+        <a id="open-original" target="_blank" rel="noreferrer">原始 PDF</a>
+      </div>
+    </header>
+
+    <main class="pdf-reader-layout">
+      <section id="pdf-status" class="pdf-status">正在加载 PDF...</section>
+      <section id="pdf-pages" class="pdf-pages" aria-label="PDF 页面"></section>
+    </main>
+
+    <script src="../shared/constants.js"></script>
+    <script src="../content/content-ui.js"></script>
+    <script type="module" src="./viewer.js"></script>
+  </body>
+</html>

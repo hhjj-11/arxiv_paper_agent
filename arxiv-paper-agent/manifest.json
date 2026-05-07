@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "ArXiv 论文阅读智能助手",
+  "version": "0.1.0",
+  "description": "面向 ArXiv 论文阅读的智能 Agent 扩展，支持选词翻译、段落翻译、术语解析、学习资源跳转、论文框架梳理与可扩展自定义 Agent。",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://arxiv.org/*",
+    "https://api.dictionaryapi.dev/*",
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "action": {
+    "default_title": "ArXiv 论文阅读智能助手",
+    "default_popup": "src/popup/popup.html"
+  },
+  "options_page": "src/options/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://arxiv.org/*"
+      ],
+      "js": [
+        "src/shared/constants.js",
+        "src/content/content-ui.js",
+        "src/content/content.js"
+      ],
+      "css": [
+        "src/content/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

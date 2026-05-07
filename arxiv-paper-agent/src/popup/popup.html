@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArXiv 论文阅读智能助手</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <p class="eyebrow">ArXiv Paper Agent</p>
+      <h1>论文阅读智能助手</h1>
+      <p id="page-status" class="status">正在检测当前页面...</p>
+
+      <section class="api-status">
+        <div class="api-status-title">最近 API 调用</div>
+        <div id="api-status-body" class="api-status-body">正在读取...</div>
+      </section>
+
+      <div id="pdf-actions" class="pdf-actions" hidden>
+        <button id="open-agent-pdf" type="button">用 Agent 阅读 PDF</button>
+        <button id="open-abs" type="button" class="secondary">打开摘要页</button>
+      </div>
+
+      <div class="feature-list">
+        <div class="feature">划词翻译与音标</div>
+        <div class="feature">整句翻译与句子精读</div>
+        <div class="feature">术语深度解析</div>
+        <div class="feature">YouTube 学习资源</div>
+        <div class="feature">大纲、溯源与复现 Agent</div>
+      </div>
+
+      <button id="open-options" type="button">打开配置页</button>
+    </main>
+
+    <script src="./popup.js"></script>
+  </body>
+</html>
