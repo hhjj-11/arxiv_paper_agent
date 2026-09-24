@@ -4,6 +4,8 @@ A Chromium browser extension for reading arXiv papers in context. It puts focuse
 
 **Project type:** original engineering prototype. This repository does not claim a new model, a paper reproduction, or measured research gains.
 
+**My contribution:** I independently built the extension and its paper-reading workflows. The bundled PDF.js library is upstream software, credited below.
+
 ## What it does
 
 - Selection tools: word translation, sentence translation and explanation, terminology, and learning-resource lookup.
